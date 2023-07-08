@@ -66,7 +66,8 @@ var questionsArray =
   // create function for timing up
 
   // run question function
-
+  questionDisplay();
+  
   });
 
 
