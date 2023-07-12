@@ -105,12 +105,14 @@ const quizQuestions =
     button4.textContent = answers[3]; 
 
     console.log("================================");
-    console.log("new correctAnswer value");
+    console.log("new correctAnswer global value");
 
     correctAnswer = quizQuestions[i].realAnswer;
     console.log(correctAnswer);
-
+    // passing correctAnswer into checkingAnswer() function
     checkingAnswer(correctAnswer);
+
+    // get button user pushed
 
   };
 
@@ -120,5 +122,9 @@ const quizQuestions =
     console.log("********************************")
     console.log("testing correctAnswer global variable");
     console.log(correctAnswer);
+
+    // if correct answer is selected, tell use they are correct
+
+    // if correct answer is NOT selected, tell user correct answer
 
   };
