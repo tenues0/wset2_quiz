@@ -107,15 +107,15 @@ const quizQuestions =
     console.log("================================");
     console.log("new correctAnswer value");
 
-    let correctAnswer = quizQuestions[i].realAnswer;
+    correctAnswer = quizQuestions[i].realAnswer;
     console.log(correctAnswer);
 
-    checkingAnswer();
+    checkingAnswer(correctAnswer);
 
   };
 
   // This function checks the answer selection and provides feedback
-  function checkingAnswer() {
+  function checkingAnswer(correctAnswer) {
     console.log("checkingAnswer function called");
     console.log("********************************")
     console.log("testing correctAnswer global variable");
