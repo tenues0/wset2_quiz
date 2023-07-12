@@ -19,11 +19,11 @@ let possibleAnswers = document.querySelector('.answer-container');
 // Variables for starting quiz and checking answers
 let timerEl = document.getElementById('count-up');
 let startEl = document.querySelector('#quizStart');
-let questionE1 = document.querySelector('#question');
+let question = document.querySelector('.question');
 let resultE1 = document.querySelector('#result');
 
 // Some test quiz questions
-var questionsArray =
+const quizQuestions =
   [
     {
       question: "Does this question display?",
@@ -57,10 +57,10 @@ var questionsArray =
   event.preventDefault();
 
   // hide welcome screen and display question screen
-  welcomeScreen.setAttribute("hidden", true);
-  questionScreen.setAttribute("hidden", false);
-  scoreScreen.setAttribute("hidden", true);
-  highScoreScreen.setAttribute("hidden", true);
+  // welcomeScreen.setAttribute("hidden", true);
+  // questionScreen.setAttribute("hidden", false);
+  // scoreScreen.setAttribute("hidden", true);
+  // highScoreScreen.setAttribute("hidden", true);
 
   // game timer display
   // create function for timing up
@@ -73,7 +73,21 @@ var questionsArray =
 
   // This function prints the questions and answer choices to the screen
   function questionDisplay() {
+    let i = 0;
     console.log("questionDisplay function called");
+    console.log(quizQuestions);
+    console.log("********************************")
+    console.log(JSON.stringify(quizQuestions));
+
+    console.log("********************************")
+    console.log(quizQuestions[i].question);
+
+    let displayQuestion = quizQuestions[i].question;
+
+    console.log(displayQuestion);
+
+    question.textContent = displayQuestion;
+
 
   };
 
