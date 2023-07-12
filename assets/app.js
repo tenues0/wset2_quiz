@@ -22,11 +22,7 @@ let startEl = document.querySelector('#quizStart');
 let questionE1 = document.querySelector('#question');
 let resultE1 = document.querySelector('#result');
 // create global varible for correctAnswer
-let correctAnswer = "starting value";
-
-console.log("********************************")
-console.log("testing correctAnswer global variable");
-console.log(correctAnswer);
+let correctAnswer = "starting value for correctAnswer variable";
 
 // Some test quiz questions
 const quizQuestions =
@@ -56,75 +52,75 @@ const quizQuestions =
 
 
 
-  // game start button is pressed, welcome screen disappears
-  // first quiz question is presented
-  startEl.addEventListener("click", function (event) {
-  // Prevent default action
-  event.preventDefault();
+// game start button is pressed, welcome screen disappears
+// first quiz question is presented
+startEl.addEventListener("click", function (event) {
+// Prevent default action
+event.preventDefault();
 
-  // hide welcome screen and display question screen
-  // welcomeScreen.setAttribute("hidden", true);
-  // questionScreen.setAttribute("hidden", false);
-  // scoreScreen.setAttribute("hidden", true);
-  // highScoreScreen.setAttribute("hidden", true);
+// hide welcome screen and display question screen
+// welcomeScreen.setAttribute("hidden", true);
+// questionScreen.setAttribute("hidden", false);
+// scoreScreen.setAttribute("hidden", true);
+// highScoreScreen.setAttribute("hidden", true);
 
-  // game timer display
-  // create function for timing up
+// game timer display
+// create function for timing up
 
-  // run question function
-  questionDisplay();
-  
-  });
+// run question function
+questionDisplay();
+
+});
 
 
-  // This function prints the questions and answer choices to the screen
-  function questionDisplay() {
-    let i = 0;
-    console.log("questionDisplay function called");
-    console.log(quizQuestions);
-    console.log("********************************")
-    console.log(JSON.stringify(quizQuestions));
+// This function prints the questions and answer choices to the screen
+function questionDisplay() {
+  let i = 0;
+  console.log("questionDisplay() function called");
 
-    console.log("********************************")
-    console.log(quizQuestions[i].question);
+  let displayQuestion = quizQuestions[i].question;
+  console.log(displayQuestion);
+  questionE1.textContent = displayQuestion;
 
-    let displayQuestion = quizQuestions[i].question;
+  // populating the potential answers to the screen
+  let answers = quizQuestions[i].choices;
+  console.log(answers);
 
-    console.log(displayQuestion);
+  // populate buttons with possible answers from answer array
+  button1.textContent = answers[0];
+  button2.textContent = answers[1];
+  button3.textContent = answers[2];
+  button4.textContent = answers[3]; 
 
-    questionE1.textContent = displayQuestion;
+  console.log("================================");
+  console.log("new correctAnswer global value");
 
-    // populating the potential answers to the screen
-    let answers = quizQuestions[i].choices;
-    console.log(answers);
+  correctAnswer = quizQuestions[i].realAnswer;
+  console.log(correctAnswer);
+  // passing correctAnswer into checkingAnswer() function
+  checkingAnswer(correctAnswer);
 
-    // populate buttons with possible answers from answer array
-    button1.textContent = answers[0];
-    button2.textContent = answers[1];
-    button3.textContent = answers[2];
-    button4.textContent = answers[3]; 
+  // get button user pushed
 
-    console.log("================================");
-    console.log("new correctAnswer global value");
+};
 
-    correctAnswer = quizQuestions[i].realAnswer;
-    console.log(correctAnswer);
-    // passing correctAnswer into checkingAnswer() function
-    checkingAnswer(correctAnswer);
+// This function checks the answer selection and provides feedback
+function checkingAnswer(correctAnswer) {
+  console.log("checkingAnswer() function called");
+  console.log("********************************")
+  console.log("testing correctAnswer global variable");
+  console.log(correctAnswer);
 
-    // get button user pushed
+  // if correct answer is selected, tell use they are correct
 
-  };
+  // if correct answer is NOT selected, tell user correct answer
 
-  // This function checks the answer selection and provides feedback
-  function checkingAnswer(correctAnswer) {
-    console.log("checkingAnswer function called");
-    console.log("********************************")
-    console.log("testing correctAnswer global variable");
-    console.log(correctAnswer);
+};
 
-    // if correct answer is selected, tell use they are correct
 
-    // if correct answer is NOT selected, tell user correct answer
-
-  };
+// to do list
+// 1) get value from button user pushed
+// 2) compare button pushed answer to correctAnswer
+// 3) print appropriate messages to screen
+// 4) display and hide specific screens
+// 5) CSS for webpage
