@@ -111,7 +111,11 @@ function checkingAnswer(correctAnswer) {
   console.log("testing correctAnswer global variable");
   console.log(correctAnswer);
 
+  // get answer selection from quiz taker
+
+
   // if correct answer is selected, tell use they are correct
+
 
   // if correct answer is NOT selected, tell user correct answer
 
