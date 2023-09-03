@@ -14,6 +14,7 @@ let button1 = document.querySelector("#btn1");
 let button2 = document.querySelector("#btn2");
 let button3 = document.querySelector("#btn3");
 let button4 = document.querySelector("#btn4");
+const btns = document.querySelectorAll('button[id^=btn]');
 let possibleAnswers = document.querySelector('.answer-container');
 
 // Variables for starting quiz and checking answers
@@ -112,12 +113,23 @@ function checkingAnswer(correctAnswer) {
   console.log(correctAnswer);
 
   // get answer selection from quiz taker
+  // https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons
+  btns.forEach(btn => {
 
+    btn.addEventListener('click', event => {
+         console.log( event.target.id );
+         console.log( event.target.textContent );
+         // if correct answer is selected, tell use they are correct
+         // if correct answer is NOT selected, tell user correct answer
+         if (event.target.textContent == correctAnswer) {
+          console.log("You choose wisely!")
+         } else {
+           console.log("You choose poorly")
+         }
 
-  // if correct answer is selected, tell use they are correct
+    });
 
-
-  // if correct answer is NOT selected, tell user correct answer
+   });
 
 };
 
