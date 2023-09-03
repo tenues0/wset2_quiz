@@ -52,7 +52,6 @@ const quizQuestions =
   ];
 
 
-
 // game start button is pressed, welcome screen disappears
 // first quiz question is presented
 startEl.addEventListener("click", function (event) {
@@ -73,19 +72,19 @@ questionDisplay();
 
 });
 
-
+let i = 0;
 // This function prints the questions and answer choices to the screen
 function questionDisplay() {
-  let i = 0;
+  
   console.log("questionDisplay() function called");
-
+  console.log(i);
   let displayQuestion = quizQuestions[i].question;
-  console.log(displayQuestion);
+  // console.log(displayQuestion);
   questionE1.textContent = displayQuestion;
 
   // populating the potential answers to the screen
   let answers = quizQuestions[i].choices;
-  console.log(answers);
+  // console.log(answers);
 
   // populate buttons with possible answers from answer array
   button1.textContent = answers[0];
@@ -93,24 +92,22 @@ function questionDisplay() {
   button3.textContent = answers[2];
   button4.textContent = answers[3]; 
 
-  console.log("================================");
-  console.log("new correctAnswer global value");
+  // console.log("================================");
+  // console.log("new correctAnswer global value");
 
   correctAnswer = quizQuestions[i].realAnswer;
-  console.log(correctAnswer);
+  // console.log(correctAnswer);
   // passing correctAnswer into checkingAnswer() function
   checkingAnswer(correctAnswer);
-
-  // get button user pushed
 
 };
 
 // This function checks the answer selection and provides feedback
 function checkingAnswer(correctAnswer) {
-  console.log("checkingAnswer() function called");
-  console.log("********************************")
-  console.log("testing correctAnswer global variable");
-  console.log(correctAnswer);
+  // console.log("checkingAnswer() function called");
+  // console.log("********************************")
+  // console.log("testing correctAnswer global variable");
+  // console.log(correctAnswer);
 
   // get answer selection from quiz taker
   // https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons
@@ -126,6 +123,8 @@ function checkingAnswer(correctAnswer) {
          } else {
            console.log("You choose poorly")
          }
+         i++;
+         questionDisplay();
 
     });
 
@@ -133,10 +132,6 @@ function checkingAnswer(correctAnswer) {
 
 };
 
-
 // to do list
-// 1) get value from button user pushed
-// 2) compare button pushed answer to correctAnswer
-// 3) print appropriate messages to screen
-// 4) display and hide specific screens
-// 5) CSS for webpage
+// I got the buttons to populate and can get the answer selected by the user
+// now I need to cycle through the question list
